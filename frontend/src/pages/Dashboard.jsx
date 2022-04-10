@@ -1,17 +1,41 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from '../components/GoalForm'
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from '../features/goals/goalSlice'
 import GoalItem from '../components/GoalItem'
+import ReactPaginate from 'react-paginate'
+import 'flowbite';
 
 function Dashboard() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isLoading, isError, message } = useSelector((state) => state.goals)
+  const { goals, setGoals, isLoading, isError, message } = useSelector((state) => state.goals)
+
+  const [ pageNumber, setPageNumber ] = useState(0)
+
+  const goalsPerPage = 6
+  const pagesVisited = pageNumber * goalsPerPage
+
+
+  let displayedGoals=0;
+  const displayGoals = goals
+    .slice(pagesVisited, pagesVisited + goalsPerPage)
+    .map((goal) => {
+      displayedGoals++;
+      return (
+        <GoalItem key={goal._id} goal={goal} />
+      )
+    })
+
+  const pageCount = Math.ceil(goals.length / goalsPerPage)
+
+  const changePage = ({selected}) => {
+    setPageNumber(selected)
+  }
 
   useEffect(() => {
 
@@ -36,23 +60,46 @@ function Dashboard() {
   }
 
   return (
-    <>
-      <section className="heading">
-        <h1>Welcome {user && user.name } </h1>
-        <p>Goals Dashboard</p>
-      </section>
-      <GoalForm />
-
-      <section className="content">
-        { goals.length > 0 ? ( 
-          <div className="goals">
-            {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
-            ))}
+    <section className="">
+      <div className='teststylecontent'>
+        <div className="heading">
+          <h1>Task Dashboard </h1>
+        </div>
+        <div className='text-right p-5'>
+          <GoalForm />
+        </div>
+        <div className='centersect pb-5'>
+            <ReactPaginate 
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    containerClassName={"paginationBttns"}
+                    previousLinkClassName={"previousBttn"}
+                    nextLinkClassName={"nextBttn"}
+                    disabledClassName={"paginationDisabled"}
+                    activeClassName={"paginationActive"}
+                  />
           </div>
-        ) : (<h3>You have not set any goals</h3>) }
-      </section>
-    </>
+        <div className="w-full">
+          <div className=''>
+            <div className="">
+              { goals.length > 0 ? ( 
+                <>
+                  <div className="w-full text-left rounded-md p-3 grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-3 text-sm md:text-sm ">
+                    {displayGoals}
+                  </div>
+
+                </>
+              ) : (<h3>You have not set any goals</h3>) }
+            </div>
+
+            <div className={displayedGoals < 3 ? 'md:pb-96 py-10' : 'py-10'}>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </section>
   )
 }
 

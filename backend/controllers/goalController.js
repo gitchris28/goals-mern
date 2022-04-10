@@ -7,7 +7,7 @@ const User = require('../models/userModel')
 // @route   GET /api/goals
 // @access  Private
 const getGoals = asyncHandler(async (req, res) => {
-    const goals = await Goal.find({ user: req.user })
+    const goals = await Goal.find({ user: req.user }).sort({date: -1}).sort({text: 1})
 
     //res.status(200).json({ message: 'Get goals' })
     res.status(200).json(goals)
@@ -16,6 +16,7 @@ const getGoals = asyncHandler(async (req, res) => {
 // @desc    Set goal
 // @route   POST /api/goals
 // @access  Private
+/*
 const setGoal = asyncHandler(async (req, res) => {
     if(!req.body.text) {
         res.status(400)
@@ -29,6 +30,24 @@ const setGoal = asyncHandler(async (req, res) => {
 
     res.status(200).json(goal)
 })
+*/
+
+const setGoal = asyncHandler(async (req, res) => {
+
+    const { text, site, date, description } = req.body
+
+    //Create goal
+    const goal = await Goal.create({
+        text,
+        site,
+        date,
+        description,
+        user: req.user.id
+    })
+
+    res.status(200).json(goal)
+})
+
 
 // @desc    Update goal
 // @route   PUT /api/goals/:id

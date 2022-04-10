@@ -5,18 +5,22 @@ import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
       <Router>
-        <div className='container'>
+        <div className='items-center p-20 text-center teststyle  '>
           <Header />
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-          </Routes>
+          <div className=''>
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
       </Router>
       <ToastContainer />

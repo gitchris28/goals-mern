@@ -69,15 +69,16 @@ function Register() {
   return (
     <>
         <section className="heading">
-            <h1>
+            <h1 className='flex items-center justify-center'>
                 <FaUser /> Register
             </h1>
             <p>Please create an account</p>
         </section>
-        <section className='form'>
+        <section className='form md:pt-32 md:pb-36'>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <input 
+                        required
                         type="text" 
                         className="form-control" 
                         id="name" 
@@ -89,6 +90,7 @@ function Register() {
                 </div>
                 <div className="form-group">
                     <input 
+                        required
                         type="email" 
                         className="form-control" 
                         id="email" 
@@ -100,6 +102,7 @@ function Register() {
                 </div>
                 <div className="form-group">
                     <input 
+                        required
                         type="password" 
                         className="form-control" 
                         id="password" 
@@ -111,6 +114,7 @@ function Register() {
                 </div>
                 <div className="form-group">
                     <input 
+                        required
                         type="password" 
                         className="form-control" 
                         id="password2" 
@@ -121,7 +125,23 @@ function Register() {
                     />
                 </div>
                 <div className="form-group">
-                    <button type="submit" className='btn btn-block'>Submit</button>
+                    <button type="submit" 
+                        className='
+                        items-center
+                        py-2
+                        px-4
+                        border border-transparent
+                        text-md
+                        font-bold
+                        rounded-md
+                        text-white
+                        bg-blue-800
+                        hover:bg-blue-900
+                        focus:ring-2 focus:ring-offset-2 focus:ring-blue-800
+                        inline-block
+                        w-full
+                        '
+                    >Submit</button>
                 </div>
             </form>
         </section>

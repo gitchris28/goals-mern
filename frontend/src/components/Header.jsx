@@ -15,20 +15,39 @@ function Header() {
   }
 
   return (
-    <header className='header'>
-        <div className='logo'>
-            <Link to='/'>GoalSetter</Link>
+    <header className='flex justify-between items-center pb-10'>
+        <div className='items-center'>
+            
+            <Link to='/'>
+                <h1 className="text-3xl font-bold text-sky-900">Task Tracker { user ? user && "(" + user.name + ")" : '' }</h1>
+            </Link>
         </div>
-        <ul>
+        <ul className='flex'>
             {user ? (
                 <li>
-                    <button className='btn' onClick={onLogout}>
+                    <button 
+                        className="
+                        items-center
+                        py-1
+                        px-4
+                        border border-transparent
+                        text-md
+                        font-bold
+                        rounded-md
+                        text-white
+                        bg-red-600
+                        hover:bg-red-700
+                        focus:ring-2 focus:ring-offset-2 focus:ring-red-600
+                        inline-block
+                        flex
+                        " 
+                    onClick={onLogout}>
                         <FaSignOutAlt /> Logout
                     </button>
                 </li>
             ) : (
             <>
-                <li>
+                <li className='px-5'>
                     <Link to='/login'>
                         <FaSignInAlt /> Login
                     </Link>

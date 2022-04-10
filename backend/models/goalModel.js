@@ -9,6 +9,15 @@ const goalSchema = mongoose.Schema({
     text: {
         type: String,
         required: [true, 'Please add a text value']
+    },
+    site: {
+        type: String
+    },
+    date: {
+        type: Date
+    },
+    description: {
+        type: String
     }
     }, {
         //will create createdat updatedat
