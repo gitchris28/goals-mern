@@ -31,7 +31,7 @@ function GoalItem({ goal }) {
       data-text={goal.text}
     >
         <div className='flex justify-between items-center'>
-          <h1 className='text-2xl items-center pb-1'>{goal.site} <span className={goal.text === "Google login" ? 'items-center rounded-lg px-1 text-sm bg-red-600 text-zinc-50' : 'items-center rounded-lg px-1 text-sm bg-green-600 text-zinc-50' }>{ goal.text === "Google login" ? 'PENDING' : 'DONE' }</span></h1>
+          <h1 className='text-2xl items-center pb-1'>{goal.site} <span className={goal.text === "asdf" ? 'items-center rounded-lg px-1 text-sm bg-red-600 text-zinc-50' : 'items-center rounded-lg px-1 text-sm bg-green-600 text-zinc-50' }>{ goal.text === "Google login" ? 'PENDING' : 'DONE' }</span></h1>
           <div className='text-right'>
               { new Date(goal.date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
           </div>
