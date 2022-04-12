@@ -17,7 +17,7 @@ function Dashboard() {
 
   const [ pageNumber, setPageNumber ] = useState(0)
 
-  const goalsPerPage = 6
+  const goalsPerPage = 9
   const pagesVisited = pageNumber * goalsPerPage
 
 
@@ -65,10 +65,7 @@ function Dashboard() {
         <div className="heading">
           <h1>Task Dashboard </h1>
         </div>
-        <div className='text-right p-5'>
-          <GoalForm />
-        </div>
-        <div className='centersect pb-5'>
+        <div className='flex pb-1 items-center justify-between px-2 '>
             <ReactPaginate 
                     previousLabel={"Previous"}
                     nextLabel={"Next"}
@@ -80,6 +77,8 @@ function Dashboard() {
                     disabledClassName={"paginationDisabled"}
                     activeClassName={"paginationActive"}
                   />
+
+            <GoalForm />
           </div>
         <div className="w-full">
           <div className=''>
@@ -91,10 +90,10 @@ function Dashboard() {
                   </div>
 
                 </>
-              ) : (<h3>You have not set any goals</h3>) }
+              ) : (<h3 className='py-14'>You have not set any goals</h3>) }
             </div>
 
-            <div className={displayedGoals < 3 ? 'md:pb-96 py-10' : 'py-10'}>
+            <div className={displayedGoals < 3 ? 'md:pb-96 py-10' : ''}>
             </div>
           </div>  
         </div>

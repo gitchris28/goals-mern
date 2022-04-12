@@ -15,11 +15,12 @@ function Header() {
   }
 
   return (
-    <header className='flex justify-between items-center pb-10'>
+    <header className='flex justify-between items-center pb-3'>
         <div className='items-center'>
             
             <Link to='/'>
-                <h1 className="text-3xl font-bold text-sky-900">Task Tracker { user ? user && "(" + user.name + ")" : '' }</h1>
+                <h1 className="text-3xl font-bold text-sky-900 text-left">Task Tracker</h1>
+                <h1 className="text-3xl font-bold text-sky-900 text-left">{ user ? user && "(" + user.name + ")" : '' }</h1>
             </Link>
         </div>
         <ul className='flex'>

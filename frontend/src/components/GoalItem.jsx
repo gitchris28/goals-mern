@@ -24,9 +24,35 @@ function GoalItem({ goal }) {
     */
   }
 
+  const getSiteColor = (site) => {
+    let siteColor = ''
+    switch (site) {
+      case 'CMS':
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-sky-100'
+        break
+      case 'NEWCDM':
+      case 'CDM':
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-teal-100'
+        break
+      case 'CRM':
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-emerald-100'
+        break
+      case 'QUALITY':
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-fuchsia-100'
+        break
+      case 'REDBOARD':
+      case 'MANAGER DASHBOARD':
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-rose-100'
+        break
+      default:
+        siteColor = 'bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg bg-lime-100'
+    }
+    return siteColor
+  }
+
   return (
     <div 
-      className="bg-zinc-50 p-10 btnn relative hover:cursor-pointer rounded-lg"
+      className={getSiteColor(goal.site)}
       onClick={alertDiv}
       data-text={goal.text}
     >
