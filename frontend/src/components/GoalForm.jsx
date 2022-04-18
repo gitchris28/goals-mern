@@ -69,9 +69,9 @@ function GoalForm() {
       </button>
       {showModal ? (
         <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="flex justify-center items-center overflow-x-auto overflow-y-auto fixed pt-64 md:pt-0 inset-0 z-50 outline-none focus:outline-none">
             <div className=" w-auto my-6 mx-auto max-w-3xl ">
-              <div className="border-0 rounded-lg shadow-lg  flex flex-col w-full  outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg   flex flex-col w-full  outline-none focus:outline-none">
                 <div className="flex items-start bg-blue-900 justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
                   <h3 className="text-3xl font=semibold text-gray-200">Task Details</h3>
                   <button
@@ -83,8 +83,8 @@ function GoalForm() {
                     </span>
                   </button>
                 </div>
-                <form className="bg-zinc-50" onSubmit={onSubmit}>
-                <div className="bg-zinc-50 p-6 flex-auto">
+                <form className="bg-zinc-50 " onSubmit={onSubmit}>
+                <div className="bg-zinc-50 p-6 flex-auto ">
                     <div className="flex flex-col  items-center  rounded-md p-3 grid grid-cols-1 gap-3 sm:grid-cols-1 md:grid-cols-2 text-sm md:text-sm bg-zinc-50">
                         <div className="w-full rounded-lg flex flex-col">
                             <div className="w-full p-4 bg-zinc-50 rounded-t-lg">

@@ -80,7 +80,7 @@ console.log(goalData)
 
     {showSelectedGoal ? ( 
       <>
-          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed pt-64 md:pt-0 inset-0 z-50 outline-none focus:outline-none">
             <div className=" w-auto my-6 mx-auto max-w-3xl ">
               <div className="border-0 rounded-lg shadow-lg  flex flex-col w-full  outline-none focus:outline-none">
                 <div className="flex items-start bg-blue-900 justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
