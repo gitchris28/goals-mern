@@ -67,7 +67,7 @@ function Login() {
             </h1>
             <p>Login and start using MP Tracker</p>
         </section>
-        <section className='form md:pt-36 md:pb-60'>
+        <section className='form md:pt-36 pt-36 pb-64 md:pb-96'>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <input 

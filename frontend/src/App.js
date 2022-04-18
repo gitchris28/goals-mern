@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className='items-center p-20 text-center teststyle  '>
+        <div className='items-center p-2 text-center teststyle '>
           <Header />
           <div className=''>
             <Routes>

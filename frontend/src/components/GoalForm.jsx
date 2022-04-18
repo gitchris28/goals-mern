@@ -31,7 +31,6 @@ function GoalForm() {
   const onSubmit = e => {
       e.preventDefault()
 
-      //alert(site + " " + text + " " + date + " " + description)
       const goalData = {
         site, 
         text, 

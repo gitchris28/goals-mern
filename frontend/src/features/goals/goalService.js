@@ -16,6 +16,20 @@ const createGoal = (async (goalData, token) => {
     return response.data
 })
 
+//Update goal
+const updateGoal = (async (goalData, token) => {
+
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.put(API_URL + goalData._id, goalData, config)
+
+    return response.data
+})
+
 //Get user goals
 const getGoals = (async (token) => {
 
@@ -44,10 +58,32 @@ const deleteGoal = (async (goalId, token) => {
     return response.data
 })
 
+//Get current goal
+const getCurrentGoal = (async (goalId, token) => {
+
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.get(API_URL + goalId, config)
+
+    return response.data
+})
+
+//Close form
+const closeForm = (async () => {
+    return ""
+})
+
 const goalService = {
     createGoal,
     getGoals,
-    deleteGoal
+    deleteGoal,
+    getCurrentGoal, 
+    closeForm, 
+    updateGoal
 }
 
 export default goalService

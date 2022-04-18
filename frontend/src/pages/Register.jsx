@@ -74,7 +74,7 @@ function Register() {
             </h1>
             <p>Please create an account</p>
         </section>
-        <section className='form md:pt-32 md:pb-36'>
+        <section className='form md:pt-32 pt-20 pb-48 md:pb-72'>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <input 

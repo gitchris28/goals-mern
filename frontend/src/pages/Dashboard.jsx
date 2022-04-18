@@ -61,11 +61,12 @@ function Dashboard() {
 
   return (
     <section className="">
-      <div className='teststylecontent'>
+      <div className='teststylecontent '>
         <div className="heading">
           <h1>Task Dashboard </h1>
         </div>
-        <div className='flex pb-1 items-center justify-between px-2 '>
+        <div className='flex flex-col md:flex-row md:flex pb-1 items-center justify-between px-2 space-y-4 md:space-y-0'>
+            <GoalForm />
             <ReactPaginate 
                     previousLabel={"Previous"}
                     nextLabel={"Next"}
@@ -77,9 +78,7 @@ function Dashboard() {
                     disabledClassName={"paginationDisabled"}
                     activeClassName={"paginationActive"}
                   />
-
-            <GoalForm />
-          </div>
+        </div>
         <div className="w-full">
           <div className=''>
             <div className="">
@@ -93,7 +92,7 @@ function Dashboard() {
               ) : (<h3 className='py-14'>You have not set any goals</h3>) }
             </div>
 
-            <div className={displayedGoals < 3 ? 'md:pb-96 py-10' : ''}>
+            <div className={displayedGoals < 3 ? 'md:pb-96 md:mb-36 py-10' : 'py-10'}>
             </div>
           </div>  
         </div>

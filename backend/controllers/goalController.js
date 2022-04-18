@@ -45,7 +45,10 @@ const setGoal = asyncHandler(async (req, res) => {
         user: req.user.id
     })
 
-    res.status(200).json(goal)
+    //res.status(200).json(goal)
+
+    const goals = await Goal.find({ user: req.user }).sort({date: -1}).sort({text: 1})
+    res.status(200).json(goals)
 })
 
 
@@ -76,7 +79,10 @@ const updateGoal = asyncHandler(async (req, res) => {
 
     const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {new: true})
 
-    res.status(200).json(updatedGoal)
+    //res.status(200).json(updatedGoal)
+
+    const goals = await Goal.find({ user: req.user }).sort({date: -1}).sort({text: 1})
+    res.status(200).json(goals)
 })
 
 // @desc    Delete goals
@@ -109,9 +115,18 @@ const deleteGoal = asyncHandler(async (req, res) => {
     res.status(200).json({ id: req.params.id })
 })
 
+// @desc    Get current goal
+// @route   GET /api/goals/:id
+// @access  Private
+const getGoal = asyncHandler(async (req, res) => {
+    const goal = await Goal.findById(req.params.id)
+    res.status(200).json(goal)
+})
+
 module.exports = {
     getGoals,
     setGoal,
     updateGoal,
     deleteGoal,
+    getGoal
 }
